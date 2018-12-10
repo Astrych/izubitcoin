@@ -36,7 +36,7 @@ uint32_t Message::checksum() {
     } else {
         SHA256((unsigned char *) "", 0, (unsigned char *) digest);
     }
-    
+
     // second SHA256
     SHA256(digest, SHA256_DIGEST_LENGTH, (unsigned char *) digest);
 
@@ -67,26 +67,26 @@ void Message::setPayload(u_char *payload, size_t payloadSize) {
 struct MessageRaw Message::raw() {
     struct MessageRaw msgRaw;
     struct MessageHeader *msgHeader;
-    
+
     msgRaw.size = sizeof(struct MessageHeader) + payloadSize;
     msgRaw.content = (void *) malloc(msgRaw.size);
-    
+
     if (msgRaw.content == NULL) {
         Utils::exitError("malloc error");
     }
-    
+
     // zeroed
     memset(msgRaw.content, 0, msgRaw.size);
-    
+
     // header
     msgHeader = (struct MessageHeader *) msgRaw.content;
     msgHeader->magic = network;
     strncpy(msgHeader->command, commandName.c_str(), commandName.size());
     msgHeader->payloadLength = payloadSize;
     msgHeader->checksum = checksum();
-    
+
     // payload
     memcpy((char *) msgRaw.content + sizeof(struct MessageHeader), payload, payloadSize);
-                        
+
     return (msgRaw);
 }

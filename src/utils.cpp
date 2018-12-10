@@ -34,6 +34,7 @@ const struct option Utils::long_options[] = {
 void Utils::initApp(int argc, char *argv[]) {
     Options options;
     string commands;
+    // https://github.com/Pink2Dev/Pink2/blob/master/src/protocol.h#L19
     int port = DEFAULT_PORT;
     int c;
 
@@ -60,11 +61,11 @@ void Utils::initApp(int argc, char *argv[]) {
             case 'i':
                 commands += "i";
                 break;
-                
+
             case 'c':
                 options.setCore(true);
                 break;
-                
+
             case 't':
                 options.setTestnet(true);
                 break;
@@ -110,7 +111,7 @@ void Utils::printHelp(void) {
     cout << "EXAMPLES:" << endl;
     cout << "\tizubitcoin -i 192.168.1.1" << endl;
     cout << "\tizubitcoin -i --core 192.168.1.2" << endl;
-    cout << "\tizubitcoin --info --port 8334 192.168.1.1" << endl;
+    cout << "\tizubitcoin --info --port 9134 192.168.1.1" << endl;
 }
 
 void Utils::exitError(string msg) {

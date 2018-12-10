@@ -11,10 +11,11 @@
 using namespace std;
 
 enum Network : uint32_t {
-    // Bitcoin Cash (BCH)
-    Mainnet = 0xE8F3E1E3,
-    Testnet = 0xF4F3E5F4,
-    
+    // https://github.com/Pink2Dev/Pink2/blob/master/src/main.cpp#L3054
+    Mainnet = 0xFBF9F4F2,
+    // https://github.com/Pink2Dev/Pink2/blob/master/src/main.cpp#L2720
+    Testnet = 0x0D050402,
+
     // Bitcoin Core (BTC)
     MainnetCore = 0xD9B4BEF9,
     TestnetCore = 0x0709110B

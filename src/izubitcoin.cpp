@@ -10,6 +10,6 @@
 
 int main(int argc, char *argv[]) {
     Utils::initApp(argc, argv);
-    
+
     return(0);
 }
